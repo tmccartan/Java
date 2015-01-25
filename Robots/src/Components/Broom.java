@@ -1,9 +1,12 @@
 package Components;
 
-public class Broom extends Component  {
+/**
+ * A class representing a broom
+ *
+ */
+public class Broom extends Component {
 
-	public Broom()
-	{
+	public Broom() {
 		this.name = "Broom";
 	}
 }

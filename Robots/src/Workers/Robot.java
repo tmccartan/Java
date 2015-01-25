@@ -1,28 +1,29 @@
 package Workers;
-
+/**
+ * Abstract class all workers will be based on
+ *
+ *	Having it done this way allows for new robots to 
+ *	be added easily, by just extending this class and
+ *	implementing their work
+ */
 public abstract class Robot implements Runnable {
 
-	String name;
-	int totalProductCount;
-	
-	@Override
-	public void run()
-	{
-		System.out.println(this.name+ " started");
+	String name;	
+	@Override	
+	public void run() {
 		try {
-			
-			while(true)
-			{
+
+			while (true) {
 				Thread.sleep(1000);
-				BuildProduct();
+				DoWork();
 			}
-			
-			
+
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}		
+		}
 	}
-	abstract void BuildProduct() throws InterruptedException;
+	// Method each thread will implement that represents what work
+	// they need to do
+	abstract void DoWork() throws InterruptedException;
 	
 }
